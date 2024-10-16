@@ -1,9 +1,24 @@
 package com.plurasight.springboot.tickets.events;
 
-public record Venue(
-        int id,
-        String name,
-        String street,
-        String city,
-        String country) {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "venues")
+public class Venue {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column
+    private String street;
+
+    @Column
+    private String city;
+
+    @Column
+    private String country;
 }
